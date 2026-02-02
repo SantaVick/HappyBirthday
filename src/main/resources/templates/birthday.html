@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy 9th Birthday Patience Mumbi!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&family=Fredoka+One&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+        }
+
+        /* Stars background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle var(--duration) infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        /* Fireworks container */
+        #fireworks {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Header with sparkling text */
+        .header {
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .sparkle-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            background: linear-gradient(45deg, #FFD700, #FF8C00, #FF1493, #00FFFF, #FFD700);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 3s ease infinite, sparkle 2s infinite;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes sparkle {
+            0%, 100% { filter: drop-shadow(0 0 5px gold); }
+            50% { filter: drop-shadow(0 0 20px gold); }
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #FFD700;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        /* Age display */
+        .age-display {
+            position: relative;
+            margin: 40px auto;
+            width: 200px;
+            height: 200px;
+        }
+
+        .neon-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: transparent;
+            border: 8px solid;
+            animation: rotate 20s linear infinite;
+            box-shadow: 0 0 20px #FF1493, inset 0 0 20px #FF1493;
+        }
+
+        .neon-circle:nth-child(2) {
+            border-color: #00FFFF;
+            animation-direction: reverse;
+            animation-duration: 15s;
+            box-shadow: 0 0 20px #00FFFF, inset 0 0 20px #00FFFF;
+        }
+
+        .neon-circle:nth-child(3) {
+            border-color: #FFD700;
+            animation-duration: 25s;
+            box-shadow: 0 0 20px #FFD700, inset 0 0 20px #FFD700;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .age-number {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8rem;
+            font-family: 'Fredoka One', cursive;
+            background: linear-gradient(45deg, #FF1493, #00FFFF, #FFD700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 30px rgba(255, 20, 147, 0.5);
+            z-index: 3;
+        }
+
+        /* Name display */
+        .name-container {
+            margin: 40px 0;
+            perspective: 1000px;
+        }
+
+        .name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.5rem;
+            color: #FFD700;
+            display: inline-block;
+            transform-style: preserve-3d;
+            animation: float 6s ease-in-out infinite;
+            text-shadow: 0 5px 15px rgba(255, 215, 0, 0.5), 0 10px 30px rgba(255, 20, 147, 0.5);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotateX(0deg); }
+            50% { transform: translateY(-20px) rotateX(10deg); }
+        }
+
+        /* Photo Gallery with Horizontal Scroll */
+        .gallery-container {
+            margin: 60px auto;
+            max-width: 1200px;
+            display: none;
+        }
+
+        .gallery-container.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .gallery-title {
+            font-size: 2.5rem;
+            color: #FFD700;
+            margin-bottom: 30px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Horizontal scrolling container */
+        .photo-scroll-container {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .photo-scroll-track {
+            display: flex;
+            height: 100%;
+            width: max-content;
+            animation: scrollPhotos 40s linear infinite;
+            padding: 20px 0;
+        }
+
+        .photo-scroll-track.paused {
+            animation-play-state: paused;
+        }
+
+        @keyframes scrollPhotos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .photo-frame {
+            position: relative;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 280px;
+            min-width: 250px;
+            margin: 0 15px;
+            flex-shrink: 0;
+            animation: floatPhoto 10s ease-in-out infinite;
+        }
+
+        @keyframes floatPhoto {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(2deg); }
+            50% { transform: translateY(0) rotate(0deg); }
+            75% { transform: translateY(10px) rotate(-2deg); }
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .photo-frame:hover img {
+            transform: scale(1.05);
+        }
+
+        .photo-caption {
+            font-size: 1.1rem;
+            color: #FFD700;
+            margin-top: 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Scroll controls */
+        .scroll-controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .btn {
+            background: linear-gradient(45deg, #FF1493, #00FFFF);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
+            margin: 10px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 20, 147, 0.6);
+        }
+
+        .btn-photo {
+            background: linear-gradient(45deg, #FFD700, #FF8C00);
+        }
+
+        .btn-scroll {
+            background: linear-gradient(45deg, #00FFFF, #008080);
+        }
+
+        .btn-pause {
+            background: linear-gradient(45deg, #FF4500, #8B0000);
+        }
+
+        /* Message box */
+        .message-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px auto;
+            max-width: 800px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.2), inset 0 0 40px rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .message-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FF1493, #00FFFF, #FFD700, #FF1493);
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.5;
+            animation: borderGlow 3s linear infinite;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .message {
+            font-size: 1.8rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .highlight {
+            color: #FFD700;
+            font-weight: bold;
+            animation: colorChange 4s infinite;
+        }
+
+        @keyframes colorChange {
+            0% { color: #FFD700; }
+            33% { color: #00FFFF; }
+            66% { color: #FF1493; }
+            100% { color: #FFD700; }
+        }
+
+        /* Music player */
+        .music-player {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            padding: 15px 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .music-btn {
+            background: linear-gradient(45deg, #FF1493, #00FFFF);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.6);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .sparkle-text { font-size: 3rem; }
+            .name { font-size: 3rem; }
+            .age-number { font-size: 6rem; }
+            .age-display { width: 150px; height: 150px; }
+            .message { font-size: 1.4rem; }
+            .photo-scroll-container { height: 300px; }
+            .photo-frame { min-width: 200px; height: 250px; }
+            .photo-frame img { height: 170px; }
+            .gallery-title { font-size: 2rem; }
+            .btn { padding: 12px 24px; font-size: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .sparkle-text { font-size: 2.5rem; }
+            .name { font-size: 2.5rem; }
+            .age-number { font-size: 4rem; }
+            .age-display { width: 120px; height: 120px; }
+            .photo-scroll-container { height: 250px; }
+            .photo-frame { min-width: 180px; height: 220px; }
+            .photo-frame img { height: 150px; }
+            .scroll-controls { flex-direction: column; align-items: center; }
+        }
+
+        /* Auto-play notification */
+        .auto-play-notice {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 20, 147, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            animation: slideUp 0.5s ease;
+            max-width: 300px;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+<!-- Stars background -->
+<div class="stars"></div>
+
+<!-- Fireworks container -->
+<canvas id="fireworks"></canvas>
+
+<div class="container">
+    <header class="header">
+        <h1 class="sparkle-text">Happy Birthday!</h1>
+        <h2 class="subtitle">A Magical Celebration for an Amazing Girl</h2>
+    </header>
+
+    <div class="age-display">
+        <div class="neon-circle"></div>
+        <div class="neon-circle"></div>
+        <div class="neon-circle"></div>
+        <div class="age-number">9</div>
+    </div>
+
+    <div class="name-container">
+        <h1 class="name">Patience Mumbi</h1>
+    </div>
+
+    <div class="message-box">
+        <p class="message">Today, the whole universe is celebrating with you!</p>
+        <p class="message">You're turning <span class="highlight">NINE</span> years old, and that's absolutely amazing!</p>
+        <p class="message">May your day be filled with joy, laughter, magic, and all your favorite things!</p>
+        <p class="message">Here's to the most wonderful 9-year-old in the world! 🎉</p>
+    </div>
+
+    <div>
+        <button class="btn" id="fireworksBtn">
+            <i class="fas fa-fire"></i> Launch Fireworks
+        </button>
+        <button class="btn btn-photo" id="photosBtn">
+            <i class="fas fa-images"></i> View Birthday Photos
+        </button>
+    </div>
+
+    <!-- Photo Gallery (Initially Hidden) -->
+    <div class="gallery-container" id="photoGallery">
+        <h2 class="gallery-title">🎂 Birthday Memories 🎂</h2>
+
+        <!-- Horizontal Scrolling Photos -->
+        <div class="photo-scroll-container">
+            <div class="photo-scroll-track" id="photoScrollTrack">
+                <!-- Your photos will be duplicated here for seamless scrolling -->
+            </div>
+        </div>
+
+        <div class="scroll-controls">
+            <button class="btn btn-scroll" id="startScrollBtn">
+                <i class="fas fa-play"></i> Start Scrolling
+            </button>
+            <button class="btn btn-pause" id="stopScrollBtn">
+                <i class="fas fa-pause"></i> Stop Scrolling
+            </button>
+            <button class="btn" id="closeGalleryBtn">
+                <i class="fas fa-times"></i> Close Gallery
+            </button>
+        </div>
+    </div>
+
+    <div class="music-player">
+        <button class="music-btn" id="playBtn">
+            <i class="fas fa-pause"></i>
+        </button>
+        <span>Happy Birthday Song Playing! 🎵</span>
+        <div style="margin-left: 15px;">
+            <i class="fas fa-volume-up"></i>
+            <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5" style="margin-left: 8px;">
+        </div>
+    </div>
+
+    <footer style="margin-top: 40px; padding: 20px; color: #FFD700;">
+        <p>Made with <i class="fas fa-heart" style="color:#FF1493;"></i> for the most amazing 9-year-old!</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8;">
+            Click photos to enlarge them! • Click anywhere for fireworks!
+        </p>
+    </footer>
+</div>
+
+<audio id="birthdayAudio" autoplay loop>
+    <source src="audio/song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+    function createStars() {
+        const starsContainer = document.querySelector('.stars');
+        const starCount = 200;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+
+            const size = Math.random() * 3 + 1;
+            const x = Math.random() * 100;
+            const y = Math.random() * 100;
+            const duration = Math.random() * 3 + 2;
+
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${x}%`;
+            star.style.top = `${y}%`;
+            star.style.opacity = Math.random() * 0.5 + 0.3;
+            star.style.setProperty('--duration', `${duration}s`);
+
+            starsContainer.appendChild(star);
+        }
+    }
+
+    class Fireworks {
+        constructor() {
+            this.canvas = document.getElementById('fireworks');
+            this.ctx = this.canvas.getContext('2d');
+            this.particles = [];
+            this.setupCanvas();
+            this.animate();
+        }
+
+        setupCanvas() {
+            this.canvas.width = window.innerWidth;
+            this.canvas.height = window.innerHeight;
+
+            window.addEventListener('resize', () => {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            });
+        }
+
+        createFirework(x, y) {
+            const colors = [
+                '#FF1493', '#00FFFF', '#FFD700', '#7FFF00', '#FF4500',
+                '#9370DB', '#00FF7F', '#FF69B4', '#1E90FF', '#FF8C00'
+            ];
+
+            const particleCount = 150;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+
+            for (let i = 0; i < particleCount; i++) {
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 5 + 2;
+                const velocity = {
+                    x: Math.cos(angle) * speed,
+                    y: Math.sin(angle) * speed
+                };
+
+                const size = Math.random() * 3 + 1;
+                const life = 100;
+
+                this.particles.push({
+                    x, y,
+                    vx: velocity.x,
+                    vy: velocity.y,
+                    size,
+                    color,
+                    life,
+                    alpha: 1
+                });
+            }
+        }
+
+        updateParticles() {
+            for (let i = this.particles.length - 1; i >= 0; i--) {
+                const p = this.particles[i];
+
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.05;
+                p.life--;
+                p.alpha = p.life / 100;
+
+                if (p.life <= 0) {
+                    this.particles.splice(i, 1);
+                }
+            }
+        }
+
+        drawParticles() {
+            this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+            for (const p of this.particles) {
+                this.ctx.globalAlpha = p.alpha;
+                this.ctx.fillStyle = p.color;
+
+                this.ctx.shadowBlur = 15;
+                this.ctx.shadowColor = p.color;
+
+                this.ctx.beginPath();
+                this.ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                this.ctx.fill();
+
+                this.ctx.shadowBlur = 0;
+            }
+        }
+
+        animate() {
+            this.updateParticles();
+            this.drawParticles();
+            requestAnimationFrame(() => this.animate());
+        }
+
+        launch(x, y) {
+            this.createFirework(x, y);
+        }
+    }
+
+
+    class ScrollingPhotoGallery {
+        constructor() {
+            this.gallery = document.getElementById('photoGallery');
+            this.photoTrack = document.getElementById('photoScrollTrack');
+            this.isScrolling = true;
+
+
+            this.photos = [
+                // PHOTO 1
+                {
+                    url: 'images/image9.jpeg',
+                    caption: 'Birthday Celebration! 🎉'
+                },
+                // PHOTO 2
+                {
+                    url: 'images/image1.jpg',
+                    caption: 'Cake Time! 🍰'
+                },
+                // PHOTO 3
+                {
+                    url: 'images/image2.jpg',
+                    caption: 'Balloon Fun! 🎈'
+                },
+                // PHOTO 4
+                {
+                    url: 'images/image3.jpeg',
+                    caption: 'Happy Moments! 😊'
+                },
+                // PHOTO 5
+                {
+                    url: 'images/image4.jpeg',
+                    caption: 'Party Time! 🥳'
+                },
+                // PHOTO 6
+                {
+                    url: 'images/image5.jpeg',
+                    caption: 'Birthday Fun! 🎊'
+                },
+                // PHOTO 7
+                {
+                    url: 'images/image6.jpeg',
+                    caption: 'More Fun! 🎈'
+                },
+                // PHOTO 8
+                {
+                    url: 'images/image7.jpeg',
+                    caption: 'Celebration! 🎉'
+                },
+                // PHOTO 9
+                {
+                    url: 'images/image8.jpeg',
+                    caption: 'Happy Birthday! 🥳'
+                }
+            ];
+
+            this.loadPhotos();
+            this.setupPhotoClicks();
+        }
+
+        loadPhotos() {
+            this.photoTrack.innerHTML = '';
+
+            // Create duplicate set for seamless scrolling
+            const photosToShow = [...this.photos, ...this.photos, ...this.photos];
+
+            photosToShow.forEach((photo, index) => {
+                const photoFrame = document.createElement('div');
+                photoFrame.className = 'photo-frame';
+
+                const img = document.createElement('img');
+                img.src = photo.url;
+                img.alt = photo.caption;
+                img.loading = 'lazy';
+                img.dataset.index = index;
+
+                // Add error handling for images
+                img.onerror = () => {
+                    console.log(`Failed to load image: ${photo.url}`);
+                    img.style.background = 'linear-gradient(45deg, #FF1493, #00FFFF)';
+                    img.style.display = 'flex';
+                    img.style.alignItems = 'center';
+                    img.style.justifyContent = 'center';
+                    img.style.color = 'white';
+                    img.style.fontSize = '1.5rem';
+                    img.innerHTML = '<i class="fas fa-birthday-cake"></i>';
+                };
+
+                const caption = document.createElement('div');
+                caption.className = 'photo-caption';
+                caption.textContent = photo.caption;
+
+                photoFrame.appendChild(img);
+                photoFrame.appendChild(caption);
+                this.photoTrack.appendChild(photoFrame);
+            });
+        }
+
+        setupPhotoClicks() {
+            // Make photos clickable for enlargement
+            this.photoTrack.addEventListener('click', (e) => {
+                if (e.target.tagName === 'IMG') {
+                    this.enlargePhoto(e.target.src, e.target.alt);
+                }
+            });
+        }
+
+        enlargePhoto(url, caption) {
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                animation: fadeIn 0.3s ease;
+                flex-direction: column;
+            `;
+
+            const img = document.createElement('img');
+            img.src = url;
+            img.style.cssText = `
+                max-width: 90%;
+                max-height: 80%;
+                object-fit: contain;
+                border-radius: 10px;
+                box-shadow: 0 0 50px rgba(255, 215, 0, 0.5);
+            `;
+
+            // Handle image errors in modal
+            img.onerror = () => {
+                img.style.background = 'linear-gradient(45deg, #FF1493, #00FFFF)';
+                img.style.display = 'flex';
+                img.style.alignItems = 'center';
+                img.style.justifyContent = 'center';
+                img.style.color = 'white';
+                img.style.fontSize = '3rem';
+                img.innerHTML = '<i class="fas fa-birthday-cake"></i>';
+            };
+
+            const captionDiv = document.createElement('div');
+            captionDiv.textContent = caption;
+            captionDiv.style.cssText = `
+                color: #FFD700;
+                font-size: 1.5rem;
+                margin-top: 20px;
+                font-weight: bold;
+                text-align: center;
+            `;
+
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+            closeBtn.style.cssText = `
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background: rgba(255, 20, 147, 0.8);
+                border: none;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                color: white;
+                font-size: 1.5rem;
+                cursor: pointer;
+                transition: all 0.3s;
+            `;
+
+            closeBtn.addEventListener('click', () => {
+                modal.remove();
+            });
+
+            modal.appendChild(img);
+            modal.appendChild(captionDiv);
+            modal.appendChild(closeBtn);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.remove();
+                }
+            });
+
+            document.body.appendChild(modal);
+        }
+
+        toggleScrolling() {
+            this.isScrolling = !this.isScrolling;
+            if (this.isScrolling) {
+                this.photoTrack.classList.remove('paused');
+            } else {
+                this.photoTrack.classList.add('paused');
+            }
+            return this.isScrolling;
+        }
+
+        show() {
+            this.gallery.classList.add('active');
+            // Ensure scrolling is active
+            this.isScrolling = true;
+            this.photoTrack.classList.remove('paused');
+
+            setTimeout(() => {
+                this.gallery.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }, 300);
+        }
+
+        hide() {
+            this.gallery.classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    }
+
+    // ================================================
+    // BIRTHDAY MUSIC - AUTO PLAY ON LOAD
+    // ================================================
+    class BirthdayMusic {
+        constructor() {
+            this.audio = document.getElementById('birthdayAudio');
+            this.isPlaying = true;
+            this.volume = 0.5;
+
+            // Set volume
+            this.audio.volume = this.volume;
+
+            // Try to play automatically
+            this.autoPlay();
+
+            // Add fallback if audio fails
+            this.audio.addEventListener('error', () => {
+                console.log('Audio failed, using backup song');
+                this.useBackupSong();
+            });
+
+            // Auto-retry playing
+            setTimeout(() => {
+                if (!this.isPlaying) {
+                    this.audio.play().catch(() => {
+                        this.useBackupSong();
+                    });
+                }
+            }, 1000);
+        }
+
+        autoPlay() {
+            // Try to play automatically
+            this.audio.play().then(() => {
+                this.isPlaying = true;
+                console.log('Birthday song playing!');
+            }).catch(error => {
+                console.log("Auto-play was prevented:", error);
+                this.showPlayNotice();
+            });
+        }
+
+        showPlayNotice() {
+            const notice = document.createElement('div');
+            notice.className = 'auto-play-notice';
+            notice.innerHTML = `
+                <i class="fas fa-volume-up"></i>
+                Click anywhere to play birthday music!
+            `;
+            document.body.appendChild(notice);
+
+            setTimeout(() => {
+                notice.style.opacity = '0';
+                notice.style.transform = 'translateY(20px)';
+                setTimeout(() => notice.remove(), 500);
+            }, 5000);
+
+            document.addEventListener('click', () => {
+                this.audio.play();
+                this.isPlaying = true;
+                document.getElementById('playBtn').innerHTML = '<i class="fas fa-pause"></i>';
+                notice.remove();
+            }, { once: true });
+        }
+
+        useBackupSong() {
+            // Use a backup online birthday song
+            const backupAudio = new Audio('https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3');
+            backupAudio.volume = this.volume;
+            backupAudio.loop = true;
+
+            backupAudio.play().then(() => {
+                // Replace the main audio with backup
+                this.audio = backupAudio;
+                this.isPlaying = true;
+                console.log('Using backup birthday song');
+            }).catch(() => {
+                console.log('Both audio sources failed');
+            });
+        }
+
+        toggle() {
+            if (this.isPlaying) {
+                this.audio.pause();
+                this.isPlaying = false;
+                document.getElementById('playBtn').innerHTML = '<i class="fas fa-play"></i>';
+            } else {
+                this.audio.play().then(() => {
+                    this.isPlaying = true;
+                    document.getElementById('playBtn').innerHTML = '<i class="fas fa-pause"></i>';
+                });
+            }
+        }
+
+        setVolume(value) {
+            this.volume = value;
+            this.audio.volume = value;
+        }
+    }
+
+    // ================================================
+    // INITIALIZE EVERYTHING
+    // ================================================
+    document.addEventListener('DOMContentLoaded', () => {
+        // Create stars
+        createStars();
+
+        // Initialize systems
+        const fireworks = new Fireworks();
+        const gallery = new ScrollingPhotoGallery();
+        const music = new BirthdayMusic();
+
+        // Fireworks button
+        document.getElementById('fireworksBtn').addEventListener('click', (e) => {
+            const rect = e.target.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top;
+
+            // Launch multiple fireworks
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    fireworks.launch(
+                        Math.random() * window.innerWidth,
+                        Math.random() * window.innerHeight * 0.5
+                    );
+                }, i * 150);
+            }
+        });
+
+        // Photo gallery button
+        document.getElementById('photosBtn').addEventListener('click', () => {
+            gallery.show();
+            document.getElementById('photosBtn').innerHTML = '<i class="fas fa-check"></i> Photos Open!';
+        });
+
+        // Start scrolling button
+        document.getElementById('startScrollBtn').addEventListener('click', () => {
+            gallery.toggleScrolling();
+            document.getElementById('startScrollBtn').innerHTML = '<i class="fas fa-play"></i> Scrolling...';
+            document.getElementById('stopScrollBtn').innerHTML = '<i class="fas fa-pause"></i> Stop Scrolling';
+        });
+
+        // Stop scrolling button
+        document.getElementById('stopScrollBtn').addEventListener('click', () => {
+            gallery.toggleScrolling();
+            document.getElementById('startScrollBtn').innerHTML = '<i class="fas fa-play"></i> Start Scrolling';
+            document.getElementById('stopScrollBtn').innerHTML = '<i class="fas fa-pause"></i> Stopped';
+        });
+
+        // Close gallery button
+        document.getElementById('closeGalleryBtn').addEventListener('click', () => {
+            gallery.hide();
+            document.getElementById('photosBtn').innerHTML = '<i class="fas fa-images"></i> View Birthday Photos';
+        });
+
+        // Music play/pause button
+        document.getElementById('playBtn').addEventListener('click', () => {
+            music.toggle();
+        });
+
+        // Volume control
+        const volumeSlider = document.getElementById('volume');
+        volumeSlider.addEventListener('input', (e) => {
+            music.setVolume(parseFloat(e.target.value));
+        });
+
+        // Click anywhere for fireworks
+        document.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON' || e.target.closest('button')) return;
+
+            fireworks.launch(e.clientX, e.clientY);
+
+            // Add sparkle effect
+            const sparkle = document.createElement('div');
+            sparkle.style.cssText = `
+                position: fixed;
+                width: 20px;
+                height: 20px;
+                background: radial-gradient(circle, gold 30%, transparent 70%);
+                border-radius: 50%;
+                pointer-events: none;
+                z-index: 1000;
+                left: ${e.clientX - 10}px;
+                top: ${e.clientY - 10}px;
+                animation: clickSparkle 0.5s linear forwards;
+            `;
+
+            document.body.appendChild(sparkle);
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes clickSparkle {
+                    0% { transform: scale(0); opacity: 1; }
+                    50% { transform: scale(1.5); opacity: 0.7; }
+                    100% { transform: scale(2); opacity: 0; }
+                }
+            `;
+            document.head.appendChild(style);
+
+            setTimeout(() => {
+                sparkle.remove();
+                style.remove();
+            }, 500);
+        });
+
+        // Auto-launch fireworks on load
+        setTimeout(() => {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    fireworks.launch(
+                        Math.random() * window.innerWidth,
+                        Math.random() * window.innerHeight * 0.3
+                    );
+                }, i * 300);
+            }
+        }, 1500);
+
+        // Welcome alert
+        setTimeout(() => {
+            alert('🎉🎂 HAPPY 9TH BIRTHDAY PATIENCE MUMBI! 🎂🎉\n\n🎵 Birthday music is playing!\n🎆 Click anywhere for fireworks!\n📸 Click "View Birthday Photos" to see scrolling pictures!');
+        }, 1000);
+
+        console.log('🎉 Birthday celebration loaded! Enjoy!');
+    });
+</script>
+</body>
+</html>

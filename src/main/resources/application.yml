@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: HappyBirthday
+
+server:
+  port: 8080
